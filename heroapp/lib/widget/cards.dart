@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/heroes.dart';
+import 'package:heroapp/model/heroes.dart';
 
 class HeroCard extends StatelessWidget {
   HeroCard({

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'model/heroes.dart';
-import 'widget/cards.dart';
-import 'widget/details.dart';
+import 'package:heroapp/model/heroes.dart';
+import 'package:heroapp/widget/cards.dart';
+import 'package:heroapp/widget/details.dart';
 
 void main() {
   runApp(const HeroApp());

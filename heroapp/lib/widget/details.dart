@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../model/heroes.dart';
-import 'info.dart';
+import 'package:heroapp/model/heroes.dart';
+import 'package:heroapp/widget/info.dart';
 
 class DetailsPage extends StatelessWidget {
   DetailsPage({required this.heroes});

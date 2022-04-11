@@ -50,16 +50,18 @@ class DetailsPage extends StatelessWidget {
                 }
               ),
             ),
-            Container(
-              height: 350.0,
-              child: SingleChildScrollView(
-                padding: EdgeInsets.all(20.0),
-                child: Column(
-                  children: [
-                    Header(text: 'Description'),
-                    SizedBox(height: 10.0),
-                    SubHeader(text: heroes.description)
-                  ],
+            Expanded(
+              child: Container(
+                height: 350.0,
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.all(20.0),
+                  child: Column(
+                    children: [
+                      Header(text: 'Description'),
+                      SizedBox(height: 10.0),
+                      SubHeader(text: heroes.description)
+                    ],
+                  ),
                 ),
               ),
             ),

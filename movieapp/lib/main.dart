@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/widgets/customtext.dart';
+import 'package:movieapp/widgets/toprated.dart';
 import 'package:movieapp/widgets/trending.dart';
 import 'package:tmdb_api/tmdb_api.dart';
 
@@ -16,6 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List trendingMovies = [];
+  List topRatedMovies = [];
 
   // API Key and Access Token from themoviesdb.org
   final String APIKey = '1eaedf0164355b4aa1fa864bb114c1f6';
@@ -33,13 +35,15 @@ class _HomePageState extends State<HomePage> {
       logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true)
     );
 
-    Map trendingResults = await tmdbWithCustomLogs.v3.trending.getTrending();
+    Map trending = await tmdbWithCustomLogs.v3.trending.getTrending();
+    Map topRated = await tmdbWithCustomLogs.v3.movies.getTopRated();
 
     setState(() {
-      trendingMovies = trendingResults['results'];
+      trendingMovies = trending['results'];
+      topRatedMovies = topRated['results'];
     });
 
-    print(trendingMovies);
+    //print(trendingMovies);
   }
 
   @override
@@ -49,6 +53,7 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
+          backgroundColor: Colors.cyan,
           title: const CustomText(
             text: 'HAU Flix 🎬', 
             color: Colors.white,
@@ -57,7 +62,8 @@ class _HomePageState extends State<HomePage> {
         ),
         body: ListView(
           children: [
-            TrendingMovies(trending: trendingMovies)
+            TrendingMovies(trending: trendingMovies),
+            TopRatedMovies(toprated: topRatedMovies)
           ],
         ),
       ),

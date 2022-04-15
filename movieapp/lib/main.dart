@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
       logConfig: const ConfigLogger(showLogs: true, showErrorLogs: true)
     );
 
-    Map trending = await tmdbWithCustomLogs.v3.trending.getTrending();
+    Map trending = await tmdbWithCustomLogs.v3.trending.getTrending(mediaType: MediaType.movie);
     Map topRated = await tmdbWithCustomLogs.v3.movies.getTopRated();
 
     setState(() {
